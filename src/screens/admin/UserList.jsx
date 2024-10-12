@@ -7,7 +7,6 @@ import {
   useGetUsersQuery,
   useUpdateUserMutation,
 } from "../../redux/api/usersApiSlice";
-import { toast } from "react-toastify";
 // ⚠️⚠️⚠️ don't forget this ⚠️⚠️⚠️⚠️
 // import AdminMenu from "./AdminMenu";
 
@@ -32,7 +31,7 @@ const UserList = () => {
         await deleteUser(id);
         refetch();
       } catch (err) {
-        toast.error(err?.data?.message || err.error);
+        console.error(err?.data?.message || err.error);
       }
     }
   };
@@ -53,7 +52,7 @@ const UserList = () => {
       setEditableUserId(null);
       refetch();
     } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      console.error(err?.data?.message || err.error);
     }
   };
 

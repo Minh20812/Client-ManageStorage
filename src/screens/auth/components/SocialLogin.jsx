@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 import { setCredentials } from "../../../redux/feature/auth/authSlice";
 import { useLoginGoogleMutation } from "../../../redux/api/userApiSlice";
-import { toast } from "react-toastify";
 
 const GoogleLogin = () => {
   const dispatch = useDispatch();
@@ -32,7 +31,7 @@ const GoogleLogin = () => {
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      console.error(err?.data?.message || err.error);
     }
   };
 

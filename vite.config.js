@@ -10,9 +10,4 @@ export default defineConfig({
       "/uploads/": "https://manage-storage.onrender.com",
     },
   },
-  build: {
-    rollupOptions: {
-      external: ["react-toastify"], // Thêm dòng này
-    },
-  },
 });

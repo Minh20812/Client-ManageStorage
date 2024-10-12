@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
 import { useRegisterMutation } from "../../redux/api/userApiSlice";
 import { setCredentials } from "../../redux/feature/auth/authSlice";
-import { toast } from "react-toastify";
 import GoogleLogin from "./components/SocialLogin";
 
 const Register = () => {
@@ -34,16 +33,16 @@ const Register = () => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+      console.error("Passwords do not match");
     } else {
       try {
         const res = await register({ username, email, password }).unwrap();
         dispatch(setCredentials({ ...res }));
         navigate(redirect);
-        toast.success("User successfully registered");
+        console.success("User successfully registered");
       } catch (err) {
         console.log(err);
-        toast.error(err.data.message);
+        console.error(err.data.message);
       }
     }
   };

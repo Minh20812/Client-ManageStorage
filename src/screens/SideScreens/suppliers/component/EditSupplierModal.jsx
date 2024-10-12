@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { useDeleteSupplierByIdMutation } from "../../../../redux/api/supplierApiSlice";
-import { toast } from "react-toastify";
 
 const EditSupplierModal = ({
   isOpen,
@@ -29,7 +28,7 @@ const EditSupplierModal = ({
         if (refetch) refetch(); // Ensure refetch is called if available
         closeModal(); // Close the modal after successful deletion
       } catch (error) {
-        toast.error(error.message);
+        console.error(error.message);
       }
     }
   };
@@ -63,10 +62,10 @@ const EditSupplierModal = ({
         ...supplier, // Ensure supplier is not mutated directly
         ...formData,
       });
-      toast.success("Supplier updated successfully!");
+      console.success("Supplier updated successfully!");
       closeModal();
     } catch (error) {
-      toast.error("Failed to update supplier.");
+      console.error("Failed to update supplier.");
     }
   };
 

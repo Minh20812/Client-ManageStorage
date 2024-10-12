@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
 import { useLoginMutation } from "../../redux/api/userApiSlice";
 import { setCredentials } from "../../redux/feature/auth/authSlice";
-import { toast } from "react-toastify";
 import { Checkbox, Label, Field } from "@headlessui/react";
 import GoogleLogin from "./components/SocialLogin";
 
@@ -37,7 +36,7 @@ const Login = () => {
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
     } catch (err) {
-      toast.error(err?.data?.message || err.error);
+      console.error(err?.data?.message || err.error);
     }
   };
 
