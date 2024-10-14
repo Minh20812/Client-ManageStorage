@@ -7,6 +7,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: `${USERS_URL}/auth`,
         method: "POST",
+        credentials: "include",
         body: data,
       }),
     }),
@@ -14,6 +15,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: `${USERS_URL}/login-google`,
         method: "POST",
+        credentials: "include",
         body: data,
       }),
     }),
@@ -21,6 +23,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: `${USERS_URL}`,
         method: "POST",
+        credentials: "include",
         body: data,
       }),
     }),
@@ -28,6 +31,7 @@ export const userApiSlice = apiSlice.injectEndpoints({
       query: () => ({
         url: `${USERS_URL}/logout`,
         method: "POST",
+        credentials: "include",
       }),
     }),
     profile: builder.mutation({
